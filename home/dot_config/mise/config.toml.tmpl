@@ -1,14 +1,13 @@
 [settings]
 experimental = true
+experimental = true
+disable_hints = ["*"]
+
+always_keep_download = false # deleted after install by default
+always_keep_install = false  # deleted on failure by default
+
+idiomatic_version_file_enable_tools = ["node"]
 
 [tools]
-"aqua:helmfile/helmfile" = "latest"
-"aqua:fluxcd/flux2" = "latest"
-"aqua:go-task/task" = "latest"
-"aqua:kubernetes-sigs/krew" = "latest"
-"aqua:cilium/cilium-cli" = "latest"
-"aqua:siderolabs/talos" = "latest"
-"aqua:yannh/kubeconform" = "latest"
-"aqua:kubernetes-sigs/kustomize" = "latest"
-"aqua:stern/stern" = "latest"
-"aqua:mitsuhiko/minijinja" = "latest"
+go = "latest"
+rust = "latest"
