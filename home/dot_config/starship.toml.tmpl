@@ -2,7 +2,7 @@
 
 add_newline = false
 command_timeout = 1000
-format = "$username$hostname$directory$git_branch$git_status${custom.direnv}$fill$python$status$cmd_duration$line_break$character"
+format = "$username$hostname$directory$git_branch$git_status$direnv$fill$python$status$cmd_duration$line_break$character"
 
 [character]
 error_symbol = "[](green)"
@@ -14,11 +14,10 @@ format = "took [$duration]($style) "
 min_time = 2000
 style = "yellow"
 
-[custom.direnv]
+[direnv]
 format = "[$symbol]($style)"
 style = "blue"
 symbol = "  "
-when = "env | grep -E '^DIRENV_FILE='"
 
 [directory]
 fish_style_pwd_dir_length = 1
