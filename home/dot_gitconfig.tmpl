@@ -1,7 +1,7 @@
 [user]
   name = {{ .git_username }}
   email = {{ .git_email }}
-  signingkey = {{ onepasswordRead "op://Private/SSH Key/public key" .op_chezmoi_personal_account }}
+  signingkey = {{ .git_signing_key }}
 [gpg]
   format = ssh
 [gpg "ssh"]
