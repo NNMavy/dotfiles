@@ -1,3 +1,40 @@
+{{/* boolean feature tags */}}
+{{- $personal := false -}}{{/* true if this is a personal machine */}}
+{{- $headless := false -}}{{/* true if this machine does not have a screen and keyboard */}}
+{{- $wsl := false -}}{{/* true if this is a WSL vm */}}
+{{- "" -}}
+
+{{/* detect GitHub codespaces, Coder remote, VSCode remote containers, Docker containers, Multipass VMs, and Vagrant boxes */}}
+{{- if or (env "CODESPACES") (env "REMOTE_CONTAINERS_IPC") (eq .chezmoi.username "root" "ubuntu" "vagrant" "vscode") (env "CODER") -}}
+{{-   $headless = true -}}
+{{-   $personal = true -}}
+{{- end -}}
+
+{{/* detect WSL */}}
+{{- if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
+{{-   $wsl = true -}}
+{{-   $personal = true -}}
+{{- end -}}
+
+{{- $name := "NNMavy" -}}
+{{- $email := "3441334+NNMavy@users.noreply.github.com" -}}
+
 format: yaml
+verbose: true
 data:
-  name: "René Koens"
+  name: {{ $name | quote }}
+  email: {{ $email | quote }}
+
+  op_chezmoi_personal_account: "TI2XHY7UIFBW3ETTXYBDV66QZE"
+  op_chezmoi_item_tags: "chezmoi"
+  op_chezmoi_age_keys: "dgqc7wp6adbswoigho4oko4zhe"
+  op_chezmoi_personalgit_pub: "de6zre2f5tktnxacawdhexuprq"
+  op_ssh_key_id: "b42tclreixppguomde5tdzphfy"
+
+  # git
+  git_username: {{ $name | quote }}
+  git_email: {{ $email | quote }}
+
+  personal: {{ $personal | quote }}
+  headless: {{ $headless }}
+  wsl: {{ $wsl }}

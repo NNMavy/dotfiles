@@ -1,0 +1,14 @@
+{{- if (eq .chezmoi.os "linux") -}}
+#!/usr/bin/env bash
+
+set -e
+
+# If mise is not installed, install it
+if ! command mise &> /dev/null
+then
+    curl https://mise.run | sh
+    eval "$(~/.local/bin/mise activate bash)"
+else
+    echo "mise already installed"
+fi
+{{- end -}}

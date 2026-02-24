@@ -1,0 +1,38 @@
+[user]
+  name = {{ .git_username }}
+  email = {{ .git_email }}
+  signingkey = {{ onepasswordRead "op://Private/SSH Key/public key" .op_chezmoi_personal_account }}
+[gpg]
+  format = ssh
+[gpg "ssh"]
+  {{ if (.wsl) -}}
+  program = "/mnt/c/Program Files/1Password/app/8/op-ssh-sign.exe"
+  {{- else -}}
+  program = "/opt/1Password/op-ssh-sign"
+  {{ end }}
+[commit]
+  gpgSign = true
+[format]
+  signOff = true
+[core]
+  editor = vim
+  excludesfile = {{ .chezmoi.homeDir }}/.gitignore_global
+[merge]
+  ff = only
+[pull]
+  rebase = true
+[status]
+  submoduleSummary = false
+[tag]
+  forceSignAnnotated = true
+[init]
+  defaultBranch = main
+[filter "lfs"]
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f
+[url "ssh://git@github.com/"]
+  pushInsteadOf = https://github.com/
+[push]
+  autoSetupRemote = true

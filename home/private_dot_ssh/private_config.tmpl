@@ -1,0 +1,22 @@
+LogLevel ERROR
+
+Host *
+  AddKeysToAgent no
+  IdentityAgent ~/.1password/agent.sock
+  UserKnownHostsFile ~/.ssh/known_hosts
+
+Host 192.168.*.*
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null
+Host 172.16.*.*
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null
+Host 10.*.*.*
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null
+
+Host *.trycloudflare.com
+  HostName %h
+  User root
+  Port 22
+  ProxyCommand cloudflared access ssh --hostname %h
