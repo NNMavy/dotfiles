@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-{{ if (eq .chezmoi.os "darwin") }}
+{{ if (eq .chezmoi.os "linux") }}
 # ---------------------------------------------------------------------------------------------------------------------
 # Install mise packages
 # mise/config.toml hash: {{ include "dot_config/mise/config.toml" | sha256sum }}
