@@ -2,7 +2,7 @@
 
 add_newline = false
 command_timeout = 1000
-format = "$username$hostname$directory$git_branch$git_status$direnv$fill$python$status$cmd_duration$line_break$character"
+format = "$username$hostname$directory$git_branch$git_status$direnv$mise$fill$python$status$cmd_duration$line_break$character"
 
 [character]
 error_symbol = "[](green)"
@@ -17,6 +17,10 @@ style = "yellow"
 [direnv]
 format = "[$symbol]($style)"
 style = "blue"
+symbol = "  "
+
+[mise]
+format = "[$symbol]($style)"
 symbol = "  "
 
 [directory]
