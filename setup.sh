@@ -12,6 +12,17 @@ function in_wsl() {
   uname -r | grep -qEi "microsoft|wsl"
 }
 
+function create_op_wrapper() {
+  local wrapper_path="$HOME/.local/bin/op"
+  mkdir -p "$(dirname "$wrapper_path")"
+  cat > "$wrapper_path" << 'EOF'
+#!/bin/bash
+OP_DIR="/mnt/c/Program Files/1Password CLI"
+exec "$OP_DIR"/op.exe "$@"
+EOF
+  chmod +x "$wrapper_path"
+}
+
 declare ostype="$(get_os_type)"
 
 if [ "${ostype}" == "Linux" ]; then
@@ -21,7 +32,7 @@ if [ "${ostype}" == "Linux" ]; then
     echo "Homebrew is already installed."
   else
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    eval "$(/opt/homebrew/bin/brew shellenv)"
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
   fi
 
   # Install chezmoi if necessary
@@ -36,10 +47,7 @@ if [ "${ostype}" == "Linux" ]; then
     echo "1Password is already installed."
   else
     if $(in_wsl); then
-      # Add 1Password CLI to PATH and create wrapper script for WSL
-      echo "PATH=\"$PATH:/mnt/c/Program Files/1Password CLI\"" >> "$HOME/.profile"
-      source "$HOME/.profile"
-      echo "exec op.exe \"$@\"" >> "$HOME/.local/bin/op"
+      create_op_wrapper
     else
       brew install 1password-cli
     fi
