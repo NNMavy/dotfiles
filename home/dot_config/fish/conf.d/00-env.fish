@@ -6,4 +6,3 @@ set -gx VISUAL vim
 set -gx EDITOR vim
 
 fish_add_path --global --prepend $HOME/.local/bin
-fish_add_path --global --prepend "/mnt/c/Program Files/WSL"

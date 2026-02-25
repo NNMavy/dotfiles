@@ -1,0 +1,7 @@
+{{ if (.wsl) }}
+# WSL-specific code
+fish_add_path --global --prepend "/mnt/c/program files/microsoft vs code/bin"
+fish_add_path --global --prepend "/mnt/c/Program Files/WSL"
+fish_add_path --global --prepend "/mnt/c/windows/system32"
+bash {{ .chezmoi.homeDir }}/.agent-bridge.sh
+{{ end }}
