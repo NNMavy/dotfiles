@@ -11,10 +11,10 @@ export SSH_AUTH_SOCK=$HOME/.1password/agent.sock
 SSH_AGENT_WORKING=$(ssh-add -l >/dev/null 2>&1; echo $?)
 if [[ $SSH_AGENT_WORKING != "0" ]]; then
     # echo "ssh agent not working, killing npiperelay.exe"
-    kill $(ps -auxww | grep "[n]piperelay.exe -ei -s //./pipe/openssh-ssh-agent" | awk '{print $2}') >/dev/null 2>&1
+    kill $(ps -auxww | grep "[n]piperelay.exe -ei -ep -p -s -v //./pipe/openssh-ssh-agent" | awk '{print $2}') >/dev/null 2>&1
 fi
 
-ALREADY_RUNNING=$(ps -auxww | grep -q "[n]piperelay.exe -ei -s //./pipe/openssh-ssh-agent"; echo $?)
+ALREADY_RUNNING=$(ps -auxww | grep -q "[n]piperelay.exe -ei -ep -p -s -v //./pipe/openssh-ssh-agent"; echo $?)
 if [[ $ALREADY_RUNNING != "0" ]]; then
 
     if [[ -S $SSH_AUTH_SOCK ]]; then
@@ -25,5 +25,5 @@ if [[ $ALREADY_RUNNING != "0" ]]; then
     echo "Starting SSH-Agent relay..."
     # setsid to force new session to keep running
     # set socat to listen on $SSH_AUTH_SOCK and forward to npiperelay which then forwards to openssh-ssh-agent on windows
-    (setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:"npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork &) >/dev/null 2>&1
+    (setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:"npiperelay.exe -ei -ep -p -s -v //./pipe/openssh-ssh-agent",nofork &) >/dev/null 2>&1
 fi
