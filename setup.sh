@@ -26,7 +26,7 @@ EOF
 function install_1password() {
   if $(in_wsl); then
     create_op_wrapper
-  else if [ -f "/etc/debian_version" ]; then
+  elif [ -f "/etc/debian_version" ]; then
     # Add GPG key for apt repository
     curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
     # Add 1password apt repository
