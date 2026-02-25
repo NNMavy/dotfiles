@@ -8,5 +8,5 @@ chezmoi init nnmavy/dotfiles
 or
 
 ```sh
-sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply nnmavy/dotfiles
+sh -c "$(curl -fsLS https://raw.githubusercontent.com/NNMavy/dotfiles/refs/heads/main/setup.sh)"
 ```
