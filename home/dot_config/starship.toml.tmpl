@@ -13,15 +13,18 @@ vicmd_symbol = "[](purple)"
 format = "took [$duration]($style) "
 min_time = 2000
 style = "yellow"
+disabled = false
 
 [direnv]
 format = "[$symbol]($style)"
 style = "blue"
 symbol = "  "
+disabled = false
 
 [mise]
 format = "[$symbol]($style)"
 symbol = "  "
+disabled = false
 
 [directory]
 fish_style_pwd_dir_length = 1
@@ -31,6 +34,7 @@ style = "blue"
 truncate_to_repo = true
 truncation_length = 3
 truncation_symbol = "../"
+disabled = false
 
 [fill]
 symbol = " "
@@ -39,6 +43,7 @@ symbol = " "
 format = "on [$symbol$branch]($style) "
 style = "purple"
 symbol = " "
+disabled = false
 
 [git_status]
 ahead = " "
@@ -54,15 +59,18 @@ stashed = " "
 style = "purple"
 untracked = " "
 up_to_date = " "
+disabled = false
 
 [hostname]
 format = "[@$hostname]($style) in "
 ssh_only = true
 style = "green"
+disabled = false
 
 [python]
 format = "[${symbol}${pyenv_prefix}(${version} )(($virtualenv) )]($style)"
 symbol = "🐍 "
+disabled = false
 
 [status]
 disabled = false
@@ -76,3 +84,4 @@ format = "[$user]($style)"
 show_always = false
 style_root = "red"
 style_user = "yellow"
+disabled = false
