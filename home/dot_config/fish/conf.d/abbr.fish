@@ -17,10 +17,6 @@ if type -q git
   abbr gitpf 'git push -f'
 end
 
-if type -q kubectl
-  abbr k kubectl
-end
-
 if type -q terraform
     abbr tf terraform
 end
