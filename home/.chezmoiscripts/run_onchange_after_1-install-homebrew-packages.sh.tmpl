@@ -5,8 +5,13 @@
 # homebrew/brewfile hash: {{ include "dot_config/homebrew/brewfile.tmpl" | sha256sum }}
 # ---------------------------------------------------------------------------------------------------------------------
 export HOMEBREW_CASK_OPTS=--no-quarantine
+echo "Adding trusted taps"
+brew trust --formula go-task/tap/go-task
+brew trust --formula derailed/k9s/k9s
+brew trust --formula fluxcd/tap/flux
+
 echo "Running brew bundle"
-brew bundle --all --file "{{ .chezmoi.homeDir }}/.config/homebrew/brewfile"
+brew bundle --file "{{ .chezmoi.homeDir }}/.config/homebrew/brewfile"
 
 echo "Running brew bundle cleanup"
 brew bundle cleanup --brews --casks --taps --mas --no-vscode --file "{{ .chezmoi.homeDir }}/.config/homebrew/brewfile" --force || true
