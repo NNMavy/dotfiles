@@ -1,11 +1,9 @@
 #!/usr/bin/env bash
 {{ if (eq .chezmoi.os "linux") }}
 # ---------------------------------------------------------------------------------------------------------------------
-# Install mise packages
-# mise/config.toml hash: {{ include "dot_config/mise/config.toml" | sha256sum }}
+# Install nix packages
 # ---------------------------------------------------------------------------------------------------------------------
 
-mise install -y
-mise plugin install nix https://github.com/jbadeau/mise-nix.git
+curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install | sh -s -- --no-daemon
 
 {{- end }}
