@@ -9,4 +9,6 @@ idiomatic_version_file_enable_tools = ["node"]
 
 [tools]
 go = "latest"
+node = "latest"
 rust = "latest"
+uv = "latest"
