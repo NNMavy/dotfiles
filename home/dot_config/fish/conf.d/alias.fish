@@ -3,5 +3,5 @@ if type -q kubectl
 end
 
 if type -q kitten
-  aliad ssh="kitten ssh"
+  alias ssh="kitten ssh"
 end
