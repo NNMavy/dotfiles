@@ -1,5 +1,8 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "server": {
+    "port": 4096,
+  },
   "mcp": {
     "bunq": {
       "type": "remote",
@@ -17,9 +20,9 @@
     }
   },
   "plugin": [
-    "superpowers@git+https://github.com/obra/superpowers.git",
     "oh-my-opencode-slim",
-    "@eleboucher/opencode-memini"
+    "@eleboucher/opencode-memini",
+    "@fission-ai/openspec"
   ],
   "provider": {
     "litellm": {
