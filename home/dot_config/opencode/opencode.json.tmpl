@@ -13,8 +13,8 @@
       "type": "remote",
       "url": "https://litellm.nnhome.eu/mcp/",
       "headers": {
-        "Authorization": "Bearer {{ onepasswordRead "op://kubernetes/litellm/master_key" "GCGYJGIM6BEINNEX6N3TE4M47A" }}",
-        "x-litellm-api-key": "Bearer {{ onepasswordRead "op://kubernetes/litellm/master_key" "GCGYJGIM6BEINNEX6N3TE4M47A" }}"
+        "Authorization": "Bearer {{ onepasswordRead "op://automation/litellm/master_key" "ZFE2PU2WABBCTAJTJQ562MG7FU" }}",
+        "x-litellm-api-key": "Bearer {{ onepasswordRead "op://automation/litellm/master_key" "ZFE2PU2WABBCTAJTJQ562MG7FU" }}"
       },
       "oauth": false
     }
@@ -30,7 +30,7 @@
       "name": "LiteLLM",
       "options": {
         "baseURL": "https://litellm.nnhome.eu/v1",
-        "apiKey": "{{ onepasswordRead "op://kubernetes/litellm/master_key" "GCGYJGIM6BEINNEX6N3TE4M47A" }}"
+        "apiKey": "{{ onepasswordRead "op://automation/litellm/master_key" "ZFE2PU2WABBCTAJTJQ562MG7FU" }}"
       },
 
       "models": {
