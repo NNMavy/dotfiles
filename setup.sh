@@ -2,7 +2,7 @@
 
 set -Eeuo pipefail
 
-declare -r DOTFILES_REPO_URL="https://git.nnhome.eu/mavy/dotfiles"
+declare -r DOTFILES_REPO_URL="https://git.codewalker.dev/mavy/dotfiles"
 
 function get_os_type() {
   uname

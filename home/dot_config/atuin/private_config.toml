@@ -1,7 +1,7 @@
 auto_sync = true
 enter_accept = false
 search_mode = "fuzzy"
-sync_address = "https://atuin.nnhome.eu"
+sync_address = "https://atuin.codewalker.dev"
 sync_frequency = "1m"
 
 [sync]

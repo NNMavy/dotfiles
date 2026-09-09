@@ -11,7 +11,7 @@
     "litellm": {
       "enabled": true,
       "type": "remote",
-      "url": "https://litellm.nnhome.eu/mcp/",
+      "url": "https://litellm.codewalker.dev/mcp/",
       "headers": {
         "Authorization": "Bearer {{ onepasswordRead "op://automation/litellm/master_key" "ZFE2PU2WABBCTAJTJQ562MG7FU" }}",
         "x-litellm-api-key": "Bearer {{ onepasswordRead "op://automation/litellm/master_key" "ZFE2PU2WABBCTAJTJQ562MG7FU" }}"
@@ -28,7 +28,7 @@
       "npm": "@ai-sdk/openai-compatible",
       "name": "LiteLLM",
       "options": {
-        "baseURL": "https://litellm.nnhome.eu/v1",
+        "baseURL": "https://litellm.codewalker.dev/v1",
         "apiKey": "{{ onepasswordRead "op://automation/litellm/master_key" "ZFE2PU2WABBCTAJTJQ562MG7FU" }}"
       },
 
