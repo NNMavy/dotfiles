@@ -3,6 +3,6 @@
 # ---------------------------------------------------------------------------------------------------------------------
 # Add fish shell
 # ---------------------------------------------------------------------------------------------------------------------
-! grep -q fish /etc/shells && sudo sed -i '$a/home/linuxbrew/.linuxbrew/bin/fish' /etc/shells
+! grep -q fish /etc/shells || sudo sed -i '$a/home/linuxbrew/.linuxbrew/bin/fish' /etc/shells
 
 {{- end }}
