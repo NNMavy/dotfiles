@@ -2,10 +2,14 @@ auto_sync = true
 enter_accept = false
 search_mode = "fuzzy"
 sync_address = "https://atuin.codewalker.dev"
-sync_frequency = "1m"
+filter_mode = "global"
 
-[sync]
-records = true
+[daemon]
+enabled = true
+autostart = true
 
 [theme]
 name = "catppuccin-macchiato-teal"
+
+[search]
+shells = "all"
